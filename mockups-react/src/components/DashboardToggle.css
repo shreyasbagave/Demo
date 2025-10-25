@@ -1,0 +1,131 @@
+/* DashboardToggle Component Styles */
+
+.dashboard-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-switch {
+  cursor: pointer;
+  padding: 2px;
+}
+
+.toggle-track {
+  width: 50px;
+  height: 26px;
+  background: #000000;
+  border-radius: 13px;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid #000000;
+}
+
+.toggle-track.active {
+  background: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.toggle-thumb {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.toggle-thumb.active {
+  transform: translateX(22px);
+}
+
+/* Hover effects */
+.toggle-switch:hover .toggle-track {
+  background: #333333;
+}
+
+.toggle-switch:hover .toggle-track.active {
+  background: #45a049;
+}
+
+.toggle-switch:hover .toggle-thumb {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dashboard-toggle-wrapper {
+    padding: 6px 10px;
+  }
+  
+  .toggle-track {
+    width: 40px;
+    height: 22px;
+  }
+  
+  .toggle-thumb {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .toggle-thumb.active {
+    transform: translateX(18px);
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-toggle-wrapper {
+    padding: 4px 8px;
+  }
+  
+  .toggle-track {
+    width: 35px;
+    height: 20px;
+  }
+  
+  .toggle-thumb {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .toggle-thumb.active {
+    transform: translateX(15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-toggle-wrapper {
+    padding: 6px 8px;
+  }
+  
+  .toggle-track {
+    width: 30px;
+    height: 18px;
+  }
+  
+  .toggle-thumb {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .toggle-thumb.active {
+    transform: translateX(12px);
+  }
+}
