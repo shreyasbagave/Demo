@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppPrototype from './App-Prototype.jsx'
 import Marketplace from './components/Marketplace.jsx'
 import ProductDetails from './pages/ProductDetails/ProductDetails.jsx'
@@ -23,7 +23,7 @@ import './App.css'
 const rootElement = document.getElementById('root')
 createRoot(rootElement).render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppPrototype />} />
         <Route path="/dashboard/farmer" element={<FarmerDashboard />} />
@@ -43,7 +43,7 @@ createRoot(rootElement).render(
         <Route path="/onboarding/farm" element={<FarmOnboarding />} />
         <Route path="*" element={<AppPrototype />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 )
 
