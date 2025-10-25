@@ -14,6 +14,15 @@ export default function ProductDetails() {
   const [isInWishlist, setIsInWishlist] = useState(false)
   const [cartItemCount, setCartItemCount] = useState(0)
 
+  // Helper function to parse price correctly from any format
+  const parsePrice = (priceString) => {
+    if (!priceString) return 0
+    // Remove all non-numeric characters except dots and commas
+    // Then remove commas and convert to float
+    const cleaned = priceString.toString().replace(/[^\d.,]/g, '').replace(/,/g, '')
+    return parseFloat(cleaned) || 0
+  }
+
   useEffect(() => {
     // PROTOTYPE: Fetch product from local data only (no API)
     const fetchProduct = () => {
@@ -408,7 +417,7 @@ export default function ProductDetails() {
     )
   }
 
-  const priceValue = parseInt(product.price.replace(/[^\d]/g, ''))
+  const priceValue = parsePrice(product.price)
   const mrp = Math.round(priceValue * 1.3)
   const discountPct = Math.round(((mrp - priceValue) / mrp) * 100)
 
@@ -1268,7 +1277,7 @@ export default function ProductDetails() {
               .filter(p => p.id !== product.id && (p.category === product.category || Math.random() > 0.5))
               .slice(0, 3)
               .map(recommendedProduct => {
-                const recPriceValue = parseInt(recommendedProduct.price.replace(/[^\d]/g, ''))
+                const recPriceValue = parsePrice(recommendedProduct.price)
                 const recMrp = Math.round(recPriceValue * 1.3)
                 const recDiscountPct = Math.round(((recMrp - recPriceValue) / recMrp) * 100)
                 

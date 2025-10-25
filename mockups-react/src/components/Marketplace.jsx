@@ -23,6 +23,15 @@ export default function Marketplace() {
   const [wishlist, setWishlist] = useState([])
   const [showAddedToast, setShowAddedToast] = useState(false)
 
+  // Helper function to parse price correctly from any format
+  const parsePrice = (priceString) => {
+    if (!priceString) return 0
+    // Remove all non-numeric characters except dots and commas
+    // Then remove commas and convert to float
+    const cleaned = priceString.toString().replace(/[^\d.,]/g, '').replace(/,/g, '')
+    return parseFloat(cleaned) || 0
+  }
+
   // Load cart and wishlist from localStorage
   useEffect(() => {
     const savedCart = localStorage.getItem('cart')
@@ -129,6 +138,25 @@ export default function Marketplace() {
     setTimeout(() => setShowAddedToast(false), 2000)
   }
 
+  // Buy Now function - Add to cart and go directly to checkout
+  const handleBuyNow = (product) => {
+    const existingItem = cart.find(item => item.id === product.id)
+    let updatedCart
+    
+    if (existingItem) {
+      // If already in cart, just navigate to checkout
+      updatedCart = cart
+    } else {
+      // Add to cart with quantity 1
+      updatedCart = [...cart, { ...product, quantity: 1 }]
+      setCart(updatedCart)
+      localStorage.setItem('cart', JSON.stringify(updatedCart))
+    }
+    
+    // Navigate directly to checkout
+    navigate('/checkout')
+  }
+
   // Add to wishlist function
   const addToWishlist = (product) => {
     const isAlreadyInWishlist = wishlist.find(item => item.id === product.id)
@@ -175,12 +203,12 @@ export default function Marketplace() {
       if (priceFilter.includes('-')) {
         const [min, max] = priceFilter.split('-').map(Number)
         filtered = filtered.filter(product => {
-          const priceValue = parseInt(product.price.replace(/[^\d]/g, ''))
+          const priceValue = parsePrice(product.price)
           return priceValue >= min && priceValue <= max
         })
       } else if (priceFilter === '1000+') {
         filtered = filtered.filter(product => {
-          const priceValue = parseInt(product.price.replace(/[^\d]/g, ''))
+          const priceValue = parsePrice(product.price)
           return priceValue >= 1000
         })
       }
@@ -305,7 +333,7 @@ export default function Marketplace() {
   // ProductCard component with rounded corners and shadow
   function ProductCard({ product, onClick, hovered, onMouseEnter, onMouseLeave }) {
     console.log('ProductCard: Rendering product:', product.name, 'Image:', product.image)
-    const priceValue = parseInt(product.price.replace(/[^\d]/g, ''))
+    const priceValue = parsePrice(product.price)
     const discountPct = Math.round(((priceValue * 1.3 - priceValue) / (priceValue * 1.3)) * 100)
     const mrp = Math.round(priceValue * 1.3)
     
@@ -397,13 +425,22 @@ export default function Marketplace() {
           {/* Action Buttons */}
           <div className="marketplace-product-actions">
             <button
+              className="marketplace-buy-now-btn"
+              onClick={(e) => {
+                e.stopPropagation()
+                handleBuyNow(product)
+              }}
+            >
+              ⚡ Buy Now
+            </button>
+            <button
               className="marketplace-add-to-cart-btn"
               onClick={(e) => {
                 e.stopPropagation()
                 addToCart(product)
               }}
             >
-              🛒 Add to Cart
+              🛒 Cart
             </button>
             <button
               className="marketplace-wishlist-btn"

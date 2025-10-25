@@ -357,28 +357,51 @@
 }
 
 .marketplace-product-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
   gap: 8px;
   margin-top: 16px;
   padding-top: 12px;
   border-top: 1px solid #F4F4F5;
 }
 
-.marketplace-add-to-cart-btn {
-  flex: 1;
-  background: #10b981;
+.marketplace-buy-now-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   color: white;
   border: none;
   border-radius: 10px;
   padding: 10px 16px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.marketplace-buy-now-btn:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
+.marketplace-add-to-cart-btn {
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 
 .marketplace-add-to-cart-btn:hover {
@@ -399,6 +422,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 48px;
 }
 
 .marketplace-wishlist-btn:hover {
@@ -517,6 +541,20 @@
     padding: 6px 12px;
     font-size: 12px;
   }
+
+  .marketplace-product-actions {
+    grid-template-columns: 1fr 1fr auto;
+  }
+
+  .marketplace-buy-now-btn {
+    font-size: 13px;
+    padding: 9px 14px;
+  }
+
+  .marketplace-add-to-cart-btn {
+    font-size: 12px;
+    padding: 9px 12px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -575,6 +613,28 @@
   .marketplace-add-to-cart-button {
     padding: 6px 10px;
     font-size: 11px;
+  }
+
+  .marketplace-product-actions {
+    grid-template-columns: 1fr auto auto;
+    gap: 6px;
+  }
+
+  .marketplace-buy-now-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .marketplace-add-to-cart-btn {
+    font-size: 11px;
+    padding: 8px 10px;
+    gap: 2px;
+  }
+
+  .marketplace-wishlist-btn {
+    min-width: 40px;
+    padding: 8px 10px;
+    font-size: 16px;
   }
   
   .marketplace-star,
@@ -655,6 +715,29 @@
   .marketplace-add-to-cart-button {
     padding: 4px 8px;
     font-size: 10px;
+  }
+
+  .marketplace-product-actions {
+    grid-template-columns: 1fr auto auto;
+    gap: 4px;
+  }
+
+  .marketplace-buy-now-btn {
+    font-size: 11px;
+    padding: 7px 10px;
+    gap: 3px;
+  }
+
+  .marketplace-add-to-cart-btn {
+    font-size: 10px;
+    padding: 7px 8px;
+    gap: 2px;
+  }
+
+  .marketplace-wishlist-btn {
+    min-width: 36px;
+    padding: 7px 8px;
+    font-size: 14px;
   }
   
   .marketplace-star,

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCart, me, createOrder } from '../../api'
 import HeaderBar from '../../components/HeaderBar.jsx'
+import { getAllProductImages } from '../../data/productImages.js'
 import './Checkout.css'
 
 export default function Checkout() {
@@ -10,6 +11,15 @@ export default function Checkout() {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const [processing, setProcessing] = useState(false)
+  
+  // Helper function to parse price correctly from any format
+  const parsePrice = (priceString) => {
+    if (!priceString) return 0
+    // Remove all non-numeric characters except dots and commas
+    // Then remove commas and convert to float
+    const cleaned = priceString.toString().replace(/[^\d.,]/g, '').replace(/,/g, '')
+    return parseFloat(cleaned) || 0
+  }
   
   // Form states
   const [shippingInfo, setShippingInfo] = useState({
@@ -59,9 +69,26 @@ export default function Checkout() {
         const savedCart = localStorage.getItem('cart')
         if (savedCart) {
           const parsedCart = JSON.parse(savedCart)
-          setCartItems(parsedCart)
           
-          if (parsedCart.length === 0) {
+          // Update cart items with latest product data from source
+          const allProducts = getAllProductImages()
+          const updatedCart = parsedCart.map(cartItem => {
+            const latestProduct = allProducts.find(p => String(p.id) === String(cartItem.id))
+            if (latestProduct) {
+              // Update with latest price and details but keep quantity
+              return {
+                ...latestProduct,
+                quantity: cartItem.quantity
+              }
+            }
+            return cartItem
+          })
+          
+          setCartItems(updatedCart)
+          // Save updated cart back to localStorage
+          localStorage.setItem('cart', JSON.stringify(updatedCart))
+          
+          if (updatedCart.length === 0) {
             navigate('/cart')
           }
         } else {
@@ -101,7 +128,7 @@ export default function Checkout() {
 
   const calculateSubtotal = () => {
     return cartItems.reduce((total, item) => {
-      const price = parseFloat((item.price || '0').replace(/[^\d.]/g, ''))
+      const price = parsePrice(item.price)
       return total + (price * item.quantity)
     }, 0)
   }
@@ -148,7 +175,7 @@ export default function Checkout() {
           product: item.id,
           name: item.name,
           quantity: item.quantity,
-          price: parseFloat((item.price || '0').replace(/[^\d.]/g, ''))
+          price: parsePrice(item.price)
         })),
         shippingInfo,
         billingInfo: billingSameAsShipping ? shippingInfo : billingInfo,
@@ -439,7 +466,7 @@ export default function Checkout() {
                       <p>Qty: {item.quantity}</p>
                     </div>
                     <div className="item-price">
-                      ₹{(parseFloat((item.price || '0').replace(/[^\d.]/g, '')) * item.quantity).toFixed(2)}
+                      ₹{(parsePrice(item.price) * item.quantity).toFixed(2)}
                     </div>
                   </div>
                 ))}

@@ -21,6 +21,15 @@ export default function Cart() {
     { code: 'ORGANIC20', discount: 20, type: 'percentage', minAmount: 1000 }
   ]
 
+  // Helper function to parse price correctly from any format
+  const parsePrice = (priceString) => {
+    if (!priceString) return 0
+    // Remove all non-numeric characters except dots and commas
+    // Then remove commas and convert to float
+    const cleaned = priceString.toString().replace(/[^\d.,]/g, '').replace(/,/g, '')
+    return parseFloat(cleaned) || 0
+  }
+
   useEffect(() => {
     loadCart()
     loadSavedForLater()
@@ -32,7 +41,25 @@ export default function Cart() {
       setLoading(true)
       const savedCart = localStorage.getItem('cart')
       if (savedCart) {
-        setCartItems(JSON.parse(savedCart))
+        const cartData = JSON.parse(savedCart)
+        
+        // Update cart items with latest product data from source
+        const allProducts = getAllProductImages()
+        const updatedCart = cartData.map(cartItem => {
+          const latestProduct = allProducts.find(p => String(p.id) === String(cartItem.id))
+          if (latestProduct) {
+            // Update with latest price and details but keep quantity
+            return {
+              ...latestProduct,
+              quantity: cartItem.quantity
+            }
+          }
+          return cartItem
+        })
+        
+        setCartItems(updatedCart)
+        // Save updated cart back to localStorage
+        localStorage.setItem('cart', JSON.stringify(updatedCart))
       }
     } catch (error) {
       console.error('Error loading cart:', error)
@@ -149,7 +176,7 @@ export default function Cart() {
 
   const calculateSubtotal = () => {
     return cartItems.reduce((total, item) => {
-      const price = parseFloat((item.price || '0').replace(/[^\d.]/g, ''))
+      const price = parsePrice(item.price)
       return total + (price * item.quantity)
     }, 0)
   }
@@ -267,7 +294,7 @@ export default function Cart() {
               </div>
 
               {cartItems.map((item) => {
-                const itemPrice = parseFloat((item.price || '0').replace(/[^\d.]/g, ''))
+                const itemPrice = parsePrice(item.price)
                 const itemTotal = itemPrice * item.quantity
 
                 return (
@@ -492,7 +519,7 @@ export default function Cart() {
             <h2>You May Also Like</h2>
             <div className="recommended-products-grid">
               {recommendedProducts.map(product => {
-                const price = parseInt((product.price || '0').replace(/[^\d]/g, ''))
+                const price = parsePrice(product.price)
                 return (
                   <div key={product.id} className="recommended-product">
                     <img 

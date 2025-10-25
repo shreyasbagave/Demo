@@ -7,7 +7,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=300&fit=crop',
     category: 'Organic Seeds',
     description: 'Certified organic wheat seeds for sustainable farming. High-yield, non-GMO, perfect for organic cultivation.',
-    price: 'Rs. 450/kg',
+    price: '₹ 85/kg',
     eco: 9.5,
     rating: 4.8,
     reviews: 25
@@ -19,7 +19,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&h=300&fit=crop',
     category: 'Organic Seeds',
     description: 'Premium organic cotton seeds for eco-friendly farming. Certified organic and sustainable.',
-    price: 'Rs. 600/kg',
+    price: '₹ 120/kg',
     eco: 9.1,
     rating: 4.3,
     reviews: 14
@@ -31,7 +31,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop',
     category: 'Organic Seeds',
     description: 'Premium organic basmati rice seeds. Certified organic for traditional farming methods.',
-    price: 'Rs. 350/kg',
+    price: '₹ 95/kg',
     eco: 8.8,
     rating: 4.5,
     reviews: 20
@@ -44,7 +44,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=300&fit=crop',
     category: 'Organic Fertilizers',
     description: 'Premium organic compost made from farm waste. 100% natural, improves soil health and crop yield.',
-    price: 'Rs. 300/bag (25kg)',
+    price: '₹ 450/bag',
     eco: 9.0,
     rating: 4.6,
     reviews: 18
@@ -56,7 +56,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&h=300&fit=crop',
     category: 'Organic Fertilizers',
     description: 'Certified organic NPK fertilizer with natural nutrients. Perfect for organic crop cultivation.',
-    price: 'Rs. 400/bag (25kg)',
+    price: '₹ 680/bag',
     eco: 8.7,
     rating: 4.4,
     reviews: 16
@@ -69,7 +69,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1565011523534-747a8601f10a?w=400&h=300&fit=crop',
     category: 'Organic Pesticides',
     description: '100% pure organic neem oil for natural pest control. Certified organic, safe for crops and beneficial insects.',
-    price: 'Rs. 250/liter',
+    price: '₹ 380/liter',
     eco: 8.5,
     rating: 4.4,
     reviews: 12
@@ -81,7 +81,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1595618676258-b6b18c9ed581?w=400&h=300&fit=crop',
     category: 'Organic Pesticides',
     description: 'Plant-based organic pesticide for eco-friendly farming. 100% natural and biodegradable.',
-    price: 'Rs. 180/liter',
+    price: '₹ 295/liter',
     eco: 9.2,
     rating: 4.7,
     reviews: 22
@@ -94,7 +94,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=300&fit=crop',
     category: 'Farm Tools',
     description: 'Professional steel plow for organic farming. Perfect for natural tillage and soil preparation.',
-    price: 'Rs. 1200/piece',
+    price: '₹ 3,200',
     eco: 8.0,
     rating: 4.2,
     reviews: 8
@@ -106,7 +106,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=400&h=300&fit=crop',
     category: 'Farm Tools',
     description: 'Ergonomic farm spade for organic farming. Ideal for digging and soil preparation in natural farming.',
-    price: 'Rs. 800/piece',
+    price: '₹ 450',
     eco: 8.2,
     rating: 4.5,
     reviews: 15
@@ -119,7 +119,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=400&h=300&fit=crop',
     category: 'Farm Equipment',
     description: 'Complete eco-friendly drip irrigation system for organic farms. Water-efficient, includes all components.',
-    price: 'Rs. 2500/set',
+    price: '₹ 8,500',
     eco: 8.8,
     rating: 4.7,
     reviews: 22
@@ -131,7 +131,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop',
     category: 'Farm Equipment',
     description: 'Eco-friendly solar water pump for organic farming. Energy-efficient, sustainable irrigation solution.',
-    price: 'Rs. 15000/piece',
+    price: '₹ 45,000',
     eco: 9.5,
     rating: 4.8,
     reviews: 28
@@ -144,7 +144,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=400&h=300&fit=crop',
     category: 'Organic Vegetables',
     description: 'Freshly harvested organic tomatoes from certified organic farms. Zero chemicals, 100% natural.',
-    price: 'Rs. 80/kg',
+    price: '₹ 55/kg',
     eco: 9.2,
     rating: 4.9,
     reviews: 35
@@ -156,7 +156,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=300&fit=crop',
     category: 'Organic Vegetables',
     description: 'Farm-fresh organic carrots grown naturally. Rich in vitamins, perfect for organic living.',
-    price: 'Rs. 60/kg',
+    price: '₹ 48/kg',
     eco: 8.9,
     rating: 4.6,
     reviews: 24
@@ -169,7 +169,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=400&h=300&fit=crop',
     category: 'Organic Grains',
     description: 'Certified organic basmati rice from traditional farms. Aromatic, pesticide-free, naturally grown.',
-    price: 'Rs. 120/kg',
+    price: '₹ 180/kg',
     eco: 8.7,
     rating: 4.5,
     reviews: 28
@@ -181,7 +181,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=300&fit=crop',
     category: 'Organic Grains',
     description: 'Premium organic wheat from certified farms. 100% natural, perfect for bread, roti, and traditional foods.',
-    price: 'Rs. 100/kg',
+    price: '₹ 65/kg',
     eco: 9.0,
     rating: 4.7,
     reviews: 32
@@ -194,7 +194,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&h=300&fit=crop',
     category: 'Organic Spices',
     description: 'Certified organic turmeric powder from traditional farms. High curcumin content, 100% natural.',
-    price: 'Rs. 200/kg',
+    price: '₹ 420/kg',
     eco: 9.3,
     rating: 4.8,
     reviews: 19
@@ -206,7 +206,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1596040033229-a0b13b8e1c52?w=400&h=300&fit=crop',
     category: 'Organic Spices',
     description: 'Premium organic cumin seeds from certified farms. Aromatic, chemical-free, perfect for cooking.',
-    price: 'Rs. 150/kg',
+    price: '₹ 550/kg',
     eco: 8.8,
     rating: 4.4,
     reviews: 21
@@ -219,7 +219,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&h=300&fit=crop',
     category: 'Organic Fruits',
     description: 'Sweet organic mangoes from certified farms. Naturally ripened, zero chemicals, pure farm goodness.',
-    price: 'Rs. 150/kg',
+    price: '₹ 140/kg',
     eco: 8.9,
     rating: 4.6,
     reviews: 31
@@ -231,7 +231,7 @@ export const productImages = {
     image: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&h=300&fit=crop',
     category: 'Organic Fruits',
     description: 'Crisp organic apples from natural farms. Pesticide-free, perfect for healthy living.',
-    price: 'Rs. 120/kg',
+    price: '₹ 160/kg',
     eco: 9.1,
     rating: 4.7,
     reviews: 26
