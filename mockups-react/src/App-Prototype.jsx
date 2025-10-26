@@ -7,7 +7,7 @@ export default function AppPrototype() {
   const [isSignup, setIsSignup] = useState(false)
   const [activeTab, setActiveTab] = useState('credentials')
   
-  // PROTOTYPE: No validation, just navigate to marketplace
+  // PROTOTYPE: No validation, just navigate to dashboard
   const handleLogin = (e) => {
     e.preventDefault()
     // Store mock data for prototype
@@ -20,8 +20,8 @@ export default function AppPrototype() {
       role: 'farmer'
     }))
     
-    // Navigate to marketplace
-    navigate('/marketplace')
+    // Navigate to dashboard after login
+    navigate('/dashboard/farmer')
   }
   
   const handleSignup = (e) => {
