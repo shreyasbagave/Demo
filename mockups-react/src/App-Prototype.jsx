@@ -7,21 +7,21 @@ export default function AppPrototype() {
   const [isSignup, setIsSignup] = useState(false)
   const [activeTab, setActiveTab] = useState('credentials')
   
-  // PROTOTYPE: Simplified - no validation, direct navigation
+  // PROTOTYPE: No validation, just navigate to marketplace
   const handleLogin = (e) => {
     e.preventDefault()
-    // Mock login - store fake data for prototype
+    // Store mock data for prototype
     localStorage.setItem('token', 'prototype-token-123')
     localStorage.setItem('userRole', 'farmer')
     localStorage.setItem('user', JSON.stringify({
-      username: 'Demo Farmer',
-      email: 'farmer@demo.com',
+      username: 'Demo User',
+      email: 'demo@agristack.com',
       agristackId: 'AS-12345-DEMO',
       role: 'farmer'
     }))
     
-    // Navigate to farmer dashboard
-    navigate('/dashboard/farmer')
+    // Navigate to marketplace
+    navigate('/marketplace')
   }
   
   const handleSignup = (e) => {
@@ -30,18 +30,12 @@ export default function AppPrototype() {
     handleLogin(e)
   }
 
-  const resetForm = () => {
-    // No-op for prototype
-  }
-
   const toggleMode = () => {
     setIsSignup(!isSignup)
-    resetForm()
   }
 
   const handleTabChange = (tab) => {
     setActiveTab(tab)
-    resetForm()
   }
 
   return (
@@ -59,7 +53,7 @@ export default function AppPrototype() {
         color: '#92400e',
         zIndex: 1000
       }}>
-        📐 PROTOTYPE - Visual Flow Only
+        📐 PROTOTYPE - UI Mockup
       </div>
       
       <div className="login-card">
@@ -119,7 +113,7 @@ export default function AppPrototype() {
             <div className="form-group">
               <label className="label" htmlFor="role">Role</label>
               <select id="role" className="input">
-                <option value="" disabled>Select role</option>
+                <option value="">Select role</option>
                 <option value="farmer">Farmer</option>
                 <option value="dairy">Dairy Farmer</option>
                 <option value="msme">MSME</option>
@@ -137,7 +131,6 @@ export default function AppPrototype() {
                   className="input"
                   type="text"
                   placeholder="Enter any value (prototype)"
-                  defaultValue="demo@agristack.com"
                 />
               </div>
               <div className="form-group">
@@ -147,7 +140,6 @@ export default function AppPrototype() {
                   className="input"
                   type="password"
                   placeholder="Enter any value (prototype)"
-                  defaultValue="demo123"
                 />
               </div>
             </>
@@ -200,9 +192,9 @@ export default function AppPrototype() {
           {isSignup && (
             <>
               <div className="form-group">
-                <label className="label" htmlFor="username">Username</label>
+                <label className="label" htmlFor="signupUsername">Username</label>
                 <input
-                  id="username"
+                  id="signupUsername"
                   className="input"
                   type="text"
                   placeholder="Enter username"
@@ -210,9 +202,9 @@ export default function AppPrototype() {
               </div>
 
               <div className="form-group">
-                <label className="label" htmlFor="email">Email Address</label>
+                <label className="label" htmlFor="signupEmail">Email Address</label>
                 <input
-                  id="email"
+                  id="signupEmail"
                   className="input"
                   type="email"
                   placeholder="Enter your email address"
@@ -220,9 +212,9 @@ export default function AppPrototype() {
               </div>
 
               <div className="form-group">
-                <label className="label" htmlFor="password">Password</label>
+                <label className="label" htmlFor="signupPassword">Password</label>
                 <input
-                  id="password"
+                  id="signupPassword"
                   className="input"
                   type="password"
                   placeholder="Enter password"
@@ -253,8 +245,8 @@ export default function AppPrototype() {
 
         <p className="helper">
           {isSignup 
-            ? 'Create your AgriStack account to get started' 
-            : 'Click "Login" to see the dashboard flow - No authentication required'
+            ? '🎨 Prototype: Click "Sign Up" to explore (no validation)' 
+            : '🎨 Prototype: Click "Login" to explore (no validation)'
           }
         </p>
       </div>
