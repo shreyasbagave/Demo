@@ -20,30 +20,41 @@ import './App.css'
 
 // PROTOTYPE MODE: No auth guards, all routes accessible
 
+// Initialize app on load
+console.log('App initializing...')
+console.log('Location:', window.location.href)
+console.log('Base URL:', document.baseURI)
+
 const rootElement = document.getElementById('root')
-createRoot(rootElement).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AppPrototype />} />
-        <Route path="/dashboard/farmer" element={<FarmerDashboard />} />
-        <Route path="/dashboard/dairy" element={<DairyDashboard />} />
-        <Route path="/dashboard/msme" element={<MSMEDashboard />} />
-        <Route path="/dashboard/supplier" element={<MSMEDashboard />} />
-        <Route path="/supplier/products" element={<SupplierProducts />} />
-        <Route path="/marketplace" element={<Marketplace />} />
-        <Route path="/product/:productId" element={<ProductDetails />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/order-success/:orderId?" element={<OrderSuccess />} />
-        <Route path="/order-success" element={<OrderSuccess />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/services/disease-detection" element={<ServicesDiseaseDetection />} />
-        <Route path="/onboarding/farm" element={<FarmOnboarding />} />
-        <Route path="*" element={<AppPrototype />} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
-)
+if (!rootElement) {
+  console.error('Root element not found!')
+} else {
+  console.log('Root element found, rendering app...')
+  createRoot(rootElement).render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AppPrototype />} />
+          <Route path="/dashboard/farmer" element={<FarmerDashboard />} />
+          <Route path="/dashboard/dairy" element={<DairyDashboard />} />
+          <Route path="/dashboard/msme" element={<MSMEDashboard />} />
+          <Route path="/dashboard/supplier" element={<MSMEDashboard />} />
+          <Route path="/supplier/products" element={<SupplierProducts />} />
+          <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/product/:productId" element={<ProductDetails />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-success/:orderId?" element={<OrderSuccess />} />
+          <Route path="/order-success" element={<OrderSuccess />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/disease-detection" element={<ServicesDiseaseDetection />} />
+          <Route path="/onboarding/farm" element={<FarmOnboarding />} />
+          <Route path="*" element={<AppPrototype />} />
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
+  )
+  console.log('App rendered successfully')
+}
 
